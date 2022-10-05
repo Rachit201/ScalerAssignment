@@ -9,6 +9,4 @@ Installation Steps -
 
 # Usage 
 
-#### For users to register, they have to go to http://localhost:5000/user/
-
-#### For admins, they can go to http://localhost:5000/admin/ to access features of the program.
+#### For users, they can go to http://localhost:5000/ to access features of the program.
