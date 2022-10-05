@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List of Users</title>
+    <link href="/css/listUsers.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h2>List of Users</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+      <% for(let x of list) {%>
+      <div class="candidate">
+        <tr>
+          <td><%= x.name %></td>
+          <td><%= x.email %></td>
+          <td><%= x.phone %></td>
+          <td> <a target="__blank" href=<%= resumeDir + x.resumeID %>>Resume</a></td>
+        </tr>
+      </div>
+      <% }%>
+    </table>
+  </body>
+</html>

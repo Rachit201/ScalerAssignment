@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List of Interviews</title>
+    <link href="/css/listInterviews.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h2>List of Interviews</h2>
+    <% if(interviews.length===0){ %>
+      <div style="text-align: center;">
+        <h1 style="margin: 0 auto;">NO INTERVIEWS SCHEDULED</h1>
+      </div>
+    <% }else{ %>
+      <% for(let x of interviews) {%>
+        <table>
+          <div>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Candidate</td>
+              <td><%= x.candidate.name %></td>
+              <td><%= x.candidate.email %></td>
+              <td><%= x.candidate.phone %></td>
+            </tr>
+            <tr>
+              <td>Timings</td>
+              <td><%= x.startTime %></td>
+              <td><%= x.endTime %></td>
+              <td>
+                <form action=<%="/user/interview/add?edit="+x._id %> method="GET">
+                  <button type="submit" name="editID" value=<%=x._id%>>Edit</button></td>
+                </form>
+            </tr>
+            <% for (let y of x.interviewer){%>
+            <tr>
+              <td>Interviewer</td>
+              <td><%= y.name %></td>
+              <td><%= y.email %></td>
+              <td><%= y.phone %></td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+            <% } %>
+          </div>
+          <% }%>
+        </table>
+        <% }%>
+    }
+  </body>
+</html>
